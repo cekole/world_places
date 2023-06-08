@@ -42,9 +42,9 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        home: HomePage(),
+        home: const HomePage(),
         routes: {
-          '/home': (context) => HomePage(),
+          '/home': (context) => const HomePage(),
           '/place_detail': (context) => const PlaceDetailPage(),
         },
       ),
