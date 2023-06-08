@@ -35,6 +35,21 @@ class PlaceProvider with ChangeNotifier {
         'assets/images/places/niagara/gallery/niagara_5.jpg',
       ],
     ),
+    Place(
+      id: '3',
+      title: 'Santorini',
+      imageUrl: 'assets/images/places/santorini/santorini.jpg',
+      price: 125.0,
+      description:
+          'Santorini is one of the Cyclades islands in the Aegean Sea. It was devastated by a volcanic eruption in the 16th century BC, forever shaping its rugged landscape.',
+      location: 'Santorini, Greece',
+      images: [
+        'assets/images/places/santorini/gallery/santorini_1.jpg',
+        'assets/images/places/santorini/gallery/santorini_2.jpg',
+        'assets/images/places/santorini/gallery/santorini_3.jpg',
+        'assets/images/places/santorini/gallery/santorini_4.jpg',
+      ],
+    ),
   ];
 
   List<Place> _filteredPlaces = [];
