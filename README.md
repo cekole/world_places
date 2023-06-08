@@ -1,6 +1,6 @@
-# applogist_case
+# World Places
 
-A new Flutter project.
+A Flutter application that displays a list of places and their details.
 
 ## Getting Started
 
