@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
+    required this.onChanged,
   });
+  final Function(String) onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class CustomTextField extends StatelessWidget {
         ],
       ),
       child: TextField(
+        onChanged: onChanged,
         decoration: InputDecoration(
           hintText: 'Search',
           prefixIcon: const Icon(Icons.search),

@@ -37,6 +37,8 @@ class PlaceProvider with ChangeNotifier {
     ),
   ];
 
+  List<Place> _filteredPlaces = [];
+
   Place _selectedPlace = Place(
     id: '1',
     title: 'Giza Necropolis',
@@ -54,18 +56,21 @@ class PlaceProvider with ChangeNotifier {
     ],
   );
 
-  List<Place> _filteredPlaces = [];
-
   List<Place> get places {
     return [..._places];
+  }
+
+  List<Place> get filteredPlaces {
+    return [..._filteredPlaces];
   }
 
   Place get selectedPlace {
     return _selectedPlace;
   }
 
-  List<Place> get filteredPlaces {
-    return [..._filteredPlaces];
+  set filteredPlaces(List<Place> places) {
+    _filteredPlaces = places;
+    notifyListeners();
   }
 
   Place findById(String id) {
@@ -74,6 +79,18 @@ class PlaceProvider with ChangeNotifier {
 
   Future<void> setSelectedPlace(Place place) async {
     _selectedPlace = place;
+    notifyListeners();
+  }
+
+  void filterPlaces(String searchText) {
+    _filteredPlaces = _places.where((place) {
+      final title = place.title.toLowerCase();
+      final location = place.location.toLowerCase();
+      final searchQuery = searchText.toLowerCase();
+
+      return title.contains(searchQuery) || location.contains(searchQuery);
+    }).toList();
+
     notifyListeners();
   }
 }
