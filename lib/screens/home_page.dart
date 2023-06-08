@@ -8,8 +8,22 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:provider/provider.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    final placeData = Provider.of<PlaceProvider>(context, listen: false);
+    placeData.filteredPlaces = placeData.places;
+  }
+
+  String searchText = '';
 
   @override
   Widget build(BuildContext context) {
@@ -56,14 +70,22 @@ class HomePage extends StatelessWidget {
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
               const SizedBox(height: 16),
-              const CustomTextField(),
+              CustomTextField(
+                onChanged: (text) {
+                  setState(() {
+                    searchText = text;
+                  });
+                  Provider.of<PlaceProvider>(context, listen: false)
+                      .filterPlaces(searchText);
+                },
+              ),
               const SizedBox(height: 16),
               Expanded(
                 child: ListView.separated(
                   itemCount: Provider.of<PlaceProvider>(
                     context,
                     listen: false,
-                  ).places.length,
+                  ).filteredPlaces.length,
                   separatorBuilder: (context, index) => const SizedBox(
                     height: 16,
                   ),
@@ -72,7 +94,7 @@ class HomePage extends StatelessWidget {
                       place: Provider.of<PlaceProvider>(
                         context,
                         listen: false,
-                      ).places[index],
+                      ).filteredPlaces[index],
                     );
                   },
                 ),

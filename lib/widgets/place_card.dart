@@ -36,8 +36,6 @@ class PlaceCard extends StatelessWidget {
             ),
           );
         });
-        //Navigator.pushNamed(context, '/place_detail', arguments: place);
-        //navigate with animation with argument place
       },
       child: Container(
         decoration: BoxDecoration(
