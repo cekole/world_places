@@ -6,8 +6,7 @@ class Place {
   final String description;
   final String location;
   final List<String> images;
-  final List<String>
-      friendsVisited; //these are imageUrls for the circle avatars
+  final List<String> visitedBy; //these are imageUrls for the circle avatars
 
   Place({
     required this.id,
@@ -17,6 +16,6 @@ class Place {
     required this.description,
     required this.location,
     required this.images,
-    required this.friendsVisited,
+    required this.visitedBy,
   });
 }

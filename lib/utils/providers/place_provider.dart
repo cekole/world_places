@@ -18,15 +18,15 @@ class PlaceProvider with ChangeNotifier {
         'assets/images/places/pyramids/gallery/pyramids_4.jpg',
         'assets/images/places/pyramids/gallery/pyramids_5.jpg',
       ],
-      friendsVisited: [
-        'assets/images/places/pyramids/friends/friend_1.jpg',
-        'assets/images/places/pyramids/friends/friend_2.jpg',
-        'assets/images/places/pyramids/friends/friend_3.jpg',
-        'assets/images/places/pyramids/friends/friend_4.jpg',
-        'assets/images/places/pyramids/friends/friend_5.jpg',
-        'assets/images/places/pyramids/friends/friend_6.jpg',
-        'assets/images/places/pyramids/friends/friend_7.jpg',
-        'assets/images/places/pyramids/friends/friend_8.jpg',
+      visitedBy: [
+        'assets/images/places/visited/friend_1.jpg',
+        'assets/images/places/visited/friend_2.jpg',
+        'assets/images/places/visited/friend_3.jpg',
+        'assets/images/places/visited/friend_4.jpg',
+        'assets/images/places/visited/friend_5.jpg',
+        'assets/images/places/visited/friend_6.jpg',
+        'assets/images/places/visited/friend_7.jpg',
+        'assets/images/places/visited/friend_8.jpg',
       ],
     ),
     Place(
@@ -44,12 +44,11 @@ class PlaceProvider with ChangeNotifier {
         'assets/images/places/niagara/gallery/niagara_4.jpg',
         'assets/images/places/niagara/gallery/niagara_5.jpg',
       ],
-      friendsVisited: [
-        'assets/images/places/pyramids/friends/friend_2.jpg',
-        'assets/images/places/pyramids/friends/friend_3.jpg',
-        'assets/images/places/pyramids/friends/friend_4.jpg',
-        'assets/images/places/pyramids/friends/friend_5.jpg',
-        'assets/images/places/pyramids/friends/friend_8.jpg',
+      visitedBy: [
+        'assets/images/places/visited/friend_2.jpg',
+        'assets/images/places/visited/friend_3.jpg',
+        'assets/images/places/visited/friend_4.jpg',
+        'assets/images/places/visited/friend_8.jpg',
       ],
     ),
     Place(
@@ -66,12 +65,9 @@ class PlaceProvider with ChangeNotifier {
         'assets/images/places/santorini/gallery/santorini_3.jpg',
         'assets/images/places/santorini/gallery/santorini_4.jpg',
       ],
-      friendsVisited: [
-        'assets/images/places/pyramids/friends/friend_1.jpg',
-        'assets/images/places/pyramids/friends/friend_2.jpg',
-        'assets/images/places/pyramids/friends/friend_3.jpg',
-        'assets/images/places/pyramids/friends/friend_5.jpg',
-        'assets/images/places/pyramids/friends/friend_6.jpg',
+      visitedBy: [
+        'assets/images/places/visited/friend_1.jpg',
+        'assets/images/places/visited/friend_2.jpg',
       ],
     ),
   ];
@@ -86,7 +82,7 @@ class PlaceProvider with ChangeNotifier {
     description: '',
     location: '',
     images: [],
-    friendsVisited: [],
+    visitedBy: [],
   );
 
   List<Place> get places {

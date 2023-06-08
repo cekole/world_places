@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:applogist_case/models/place.dart';
 import 'package:applogist_case/utils/providers/place_provider.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +52,7 @@ class PlaceDetailPage extends StatelessWidget {
                   left: 50,
                   child: Container(
                     padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
+                      horizontal: 12,
                       vertical: 8,
                     ),
                     decoration: BoxDecoration(
@@ -58,39 +60,33 @@ class PlaceDetailPage extends StatelessWidget {
                       color: Colors.white,
                     ),
                     child: Row(
-                      children: const [
-                        Align(
-                          widthFactor: 0.5,
-                          child: CircleAvatar(
-                            radius: 18,
-                          ),
-                        ),
-                        Align(
-                          widthFactor: 0.5,
-                          child: CircleAvatar(
-                            radius: 18,
-                          ),
-                        ),
-                        Align(
-                          widthFactor: 0.5,
-                          child: CircleAvatar(
-                            radius: 18,
-                          ),
-                        ),
-                        Align(
-                          widthFactor: 0.5,
-                          child: CircleAvatar(
-                            backgroundColor: Colors.white,
-                            radius: 18,
-                            child: Text(
-                              '+5',
-                              style: TextStyle(
-                                fontSize: 10,
-                                fontWeight: FontWeight.bold,
-                              ),
+                      children: [
+                        for (int i = 0;
+                            i < min(3, currentPlace.visitedBy.length);
+                            i++)
+                          Align(
+                            widthFactor: 0.75,
+                            child: CircleAvatar(
+                              radius: 18,
+                              foregroundImage:
+                                  AssetImage(currentPlace.visitedBy[i]),
                             ),
                           ),
-                        ),
+                        if (currentPlace.visitedBy.length > 3)
+                          Align(
+                            widthFactor: 0.75,
+                            child: CircleAvatar(
+                              backgroundColor: Colors.white,
+                              radius: 18,
+                              child: Text(
+                                '+${currentPlace.visitedBy.length - 3}',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          )
                       ],
                     ),
                   ),

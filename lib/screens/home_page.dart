@@ -22,8 +22,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final placeData = Provider.of<PlaceProvider>(context, listen: false);
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       bottomNavigationBar: const CustomBottomNavigationBar(),
-      drawer: CustomDrawer(),
+      drawer: const CustomDrawer(),
       appBar: AppBar(
         leading: Builder(
           builder: (context) {
