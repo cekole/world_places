@@ -49,7 +49,7 @@ class PlaceDetailPage extends StatelessWidget {
                 ),
                 Positioned(
                   bottom: 0,
-                  left: 50,
+                  left: MediaQuery.of(context).size.width * 0.1,
                   child: Container(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 12,

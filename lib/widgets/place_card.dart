@@ -117,8 +117,8 @@ class PlaceCard extends StatelessWidget {
               ],
             ),
             Positioned(
-              top: 155,
-              left: 30,
+              top: MediaQuery.of(context).size.height * 0.2 - 10,
+              left: MediaQuery.of(context).size.width * 0.1 - 10,
               child: Container(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 12,
