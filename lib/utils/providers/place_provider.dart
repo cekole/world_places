@@ -18,6 +18,16 @@ class PlaceProvider with ChangeNotifier {
         'assets/images/places/pyramids/gallery/pyramids_4.jpg',
         'assets/images/places/pyramids/gallery/pyramids_5.jpg',
       ],
+      friendsVisited: [
+        'assets/images/places/pyramids/friends/friend_1.jpg',
+        'assets/images/places/pyramids/friends/friend_2.jpg',
+        'assets/images/places/pyramids/friends/friend_3.jpg',
+        'assets/images/places/pyramids/friends/friend_4.jpg',
+        'assets/images/places/pyramids/friends/friend_5.jpg',
+        'assets/images/places/pyramids/friends/friend_6.jpg',
+        'assets/images/places/pyramids/friends/friend_7.jpg',
+        'assets/images/places/pyramids/friends/friend_8.jpg',
+      ],
     ),
     Place(
       id: '2',
@@ -34,6 +44,13 @@ class PlaceProvider with ChangeNotifier {
         'assets/images/places/niagara/gallery/niagara_4.jpg',
         'assets/images/places/niagara/gallery/niagara_5.jpg',
       ],
+      friendsVisited: [
+        'assets/images/places/pyramids/friends/friend_2.jpg',
+        'assets/images/places/pyramids/friends/friend_3.jpg',
+        'assets/images/places/pyramids/friends/friend_4.jpg',
+        'assets/images/places/pyramids/friends/friend_5.jpg',
+        'assets/images/places/pyramids/friends/friend_8.jpg',
+      ],
     ),
     Place(
       id: '3',
@@ -49,26 +66,27 @@ class PlaceProvider with ChangeNotifier {
         'assets/images/places/santorini/gallery/santorini_3.jpg',
         'assets/images/places/santorini/gallery/santorini_4.jpg',
       ],
+      friendsVisited: [
+        'assets/images/places/pyramids/friends/friend_1.jpg',
+        'assets/images/places/pyramids/friends/friend_2.jpg',
+        'assets/images/places/pyramids/friends/friend_3.jpg',
+        'assets/images/places/pyramids/friends/friend_5.jpg',
+        'assets/images/places/pyramids/friends/friend_6.jpg',
+      ],
     ),
   ];
 
   List<Place> _filteredPlaces = [];
 
   Place _selectedPlace = Place(
-    id: '1',
-    title: 'Giza Necropolis',
-    imageUrl: 'assets/images/places/pyramids/pyramids.jpg',
-    price: 45.0,
-    description:
-        'The Similian Islands is an archipelago in the Andaman Sea off the coast of, and part of, Phang Nga Province of southern Thailand. It is the maritime border between India Thailand. It was established as Mu Ko Similian National Park.',
-    location: 'Al Haram, Giza Governorate, Egypt',
-    images: [
-      'assets/images/places/pyramids/gallery/pyramids.jpg',
-      'assets/images/places/pyramids/gallery/pyramids_1.jpg',
-      'assets/images/places/pyramids/gallery/pyramids_2.jpg',
-      'assets/images/places/pyramids/gallery/pyramids_3.jpg',
-      'assets/images/places/pyramids/gallery/pyramids_4.jpg',
-    ],
+    id: '',
+    title: '',
+    imageUrl: '',
+    price: 0.0,
+    description: '',
+    location: '',
+    images: [],
+    friendsVisited: [],
   );
 
   List<Place> get places {

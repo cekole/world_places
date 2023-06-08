@@ -16,17 +16,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  @override
-  void initState() {
-    super.initState();
-    final placeData = Provider.of<PlaceProvider>(context, listen: false);
-    placeData.filteredPlaces = placeData.places;
-  }
-
   String searchText = '';
 
   @override
   Widget build(BuildContext context) {
+    final placeData = Provider.of<PlaceProvider>(context, listen: false);
     return Scaffold(
       bottomNavigationBar: const CustomBottomNavigationBar(),
       drawer: CustomDrawer(),
@@ -75,27 +69,26 @@ class _HomePageState extends State<HomePage> {
                   setState(() {
                     searchText = text;
                   });
-                  Provider.of<PlaceProvider>(context, listen: false)
-                      .filterPlaces(searchText);
+                  placeData.filterPlaces(searchText);
                 },
               ),
               const SizedBox(height: 16),
               Expanded(
                 child: ListView.separated(
-                  itemCount: Provider.of<PlaceProvider>(
-                    context,
-                    listen: false,
-                  ).filteredPlaces.length,
+                  itemCount: searchText.isEmpty
+                      ? placeData.places.length
+                      : placeData.filteredPlaces.length,
                   separatorBuilder: (context, index) => const SizedBox(
                     height: 16,
                   ),
                   itemBuilder: (context, index) {
-                    return PlaceCard(
-                      place: Provider.of<PlaceProvider>(
-                        context,
-                        listen: false,
-                      ).filteredPlaces[index],
-                    );
+                    return searchText.isEmpty
+                        ? PlaceCard(
+                            place: placeData.places[index],
+                          )
+                        : PlaceCard(
+                            place: placeData.filteredPlaces[index],
+                          );
                   },
                 ),
               ),
